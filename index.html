@@ -1,0 +1,304 @@
+```html
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechMóvil S.A.S. | iPhones & Accesorios Premium</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        tech: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            500: '#0082fb',
+                            600: '#0070e0',
+                            700: '#0058b3',
+                            800: '#004a94',
+                            900: '#1e293b',
+                            950: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text-blue {
+            background: linear-gradient(135deg, #0082fb 0%, #00d2ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tech-glass {
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(16px);
+        }
+        .dark-card-glow {
+            box-shadow: 0 20px 40px -15px rgba(0, 130, 251, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased flex flex-col min-h-screen selection:bg-sky-500 selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 tech-glass border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Brand Logo (Matching TechMóvil exact design) -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 bg-white rounded-2xl flex items-center justify-center p-2 shadow-md shadow-sky-500/10 group-hover:scale-105 transition-transform duration-200">
+                        <!-- Custom SVG matching TechMóvil logo shape -->
+                        <svg class="w-full h-full" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Mobile Phone body outline -->
+                            <rect x="30" y="20" width="40" height="60" rx="9" stroke="#2C3E50" stroke-width="6" fill="none"/>
+                            <!-- Speaker Pill -->
+                            <rect x="42" y="24" width="16" height="3" rx="1.5" fill="#2C3E50"/>
+                            <!-- Orbit Ring Blue -->
+                            <path d="M 15,58 C 15,38 85,32 85,42 C 85,55 18,65 18,52" stroke="#0082FB" stroke-width="7" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-black text-2xl tracking-tight text-white leading-none">
+                            Tech<span class="text-[#0082fb]">Móvil</span>
+                        </span>
+                        <span class="text-[10px] font-semibold tracking-widest uppercase text-slate-400 mt-1">S.A.S. • Store Premium</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+                    <a href="#inicio" class="hover:text-sky-400 transition-colors">Inicio</a>
+                    <a href="#catalogo" class="hover:text-sky-400 transition-colors">iPhones & Catálogo</a>
+                    <a href="#ventajas" class="hover:text-sky-400 transition-colors">¿Por qué elegirnos?</a>
+                    <a href="#contacto" class="hover:text-sky-400 transition-colors">Contacto</a>
+                </nav>
+
+                <!-- Action CTA -->
+                <div class="flex items-center gap-3">
+                    <a href="mailto:ventasmoviltech.sas@gmail.com?subject=Consulta%20TechMóvil" 
+                       class="hidden sm:inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-400 text-slate-950 text-xs font-bold px-4 py-2.5 rounded-xl transition-all shadow-md shadow-sky-500/20">
+                        <i class="fa-regular fa-envelope text-sm"></i>
+                        <span>Escribir al Correo</span>
+                    </a>
+
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl text-slate-300 bg-slate-900 hover:bg-slate-800 border border-slate-800 focus:outline-none">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-slate-950 px-4 pt-3 pb-6 space-y-3">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg font-medium text-slate-200 hover:bg-slate-900">Inicio</a>
+            <a href="#catalogo" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg font-medium text-slate-200 hover:bg-slate-900">Catálogo iPhones</a>
+            <a href="#ventajas" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg font-medium text-slate-200 hover:bg-slate-900">Garantía & Servicio</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-lg font-medium text-slate-200 hover:bg-slate-900">Contacto Directo</a>
+            <a href="mailto:ventasmoviltech.sas@gmail.com" class="flex items-center justify-center gap-2 w-full bg-sky-500 text-slate-950 font-bold py-3 rounded-xl mt-3 text-xs">
+                <i class="fa-regular fa-envelope"></i>
+                <span>ventasmoviltech.sas@gmail.com</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative py-16 md:py-28 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+        
+        <!-- Ambient Light Effect -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-sky-500/10 border border-sky-500/30 text-sky-400 mb-6">
+                        <i class="fa-brands fa-apple text-sm"></i>
+                        <span>Especialistas en iPhone (XS al 18) & Accesorios</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl font-black text-white tracking-tight leading-tight mb-6">
+                        Tu próximo <span class="gradient-text-blue">iPhone</span> al mejor precio y con garantía escrita
+                    </h1>
+
+                    <p class="text-slate-400 text-base sm:text-lg mb-8 max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        En <strong class="text-slate-200">TechMóvil S.A.S.</strong> te ofrecemos equipos originales seleccionados, con historial de batería verificado y los mejores accesorios Apple.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#catalogo" class="inline-flex items-center justify-center gap-2 bg-sky-500 hover:bg-sky-400 text-slate-950 font-extrabold text-sm px-8 py-4 rounded-2xl shadow-lg shadow-sky-500/20 transition-all transform hover:-translate-y-0.5">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            <span>Ver Catálogo Completo</span>
+                        </a>
+                        
+                        <a href="#contacto" class="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-200 font-semibold text-sm px-6 py-4 rounded-2xl border border-slate-800 transition-all">
+                            <i class="fa-regular fa-envelope text-sky-400"></i>
+                            <span>Cotizar por Email</span>
+                        </a>
+                    </div>
+
+                    <!-- Highlights Banner -->
+                    <div class="mt-12 pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-4">
+                        <div class="text-center lg:text-left">
+                            <div class="text-xl sm:text-2xl font-black text-white">100%</div>
+                            <div class="text-xs text-slate-400">Equipos Originales</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-xl sm:text-2xl font-black text-sky-400">XS ➔ 18</div>
+                            <div class="text-xs text-slate-400">Gama Completa</div>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <div class="text-xl sm:text-2xl font-black text-white">Rápido</div>
+                            <div class="text-xs text-slate-400">Atención por Correo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Showcase Product Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md bg-slate-900 border border-slate-800 p-6 rounded-3xl dark-card-glow">
+                        <div class="absolute -top-3 -right-3 bg-sky-500 text-slate-950 font-black text-[10px] px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
+                            Destacado TechMóvil
+                        </div>
+
+                        <div class="w-full h-72 bg-gradient-to-b from-slate-950 to-slate-900 rounded-2xl flex flex-col items-center justify-center p-6 text-center border border-slate-800/80 relative overflow-hidden group">
+                            <!-- Graphic iPhone Illustration -->
+                            <div class="w-28 h-52 bg-slate-950 border-4 border-slate-700 rounded-[32px] p-1.5 shadow-2xl relative flex flex-col justify-between group-hover:scale-105 transition-transform duration-300">
+                                <div class="w-10 h-2 bg-slate-800 rounded-full mx-auto"></div>
+                                <div class="flex-1 flex flex-col items-center justify-center">
+                                    <i class="fa-brands fa-apple text-slate-400 text-3xl mb-1"></i>
+                                    <span class="text-[9px] font-bold text-sky-400 tracking-wider uppercase">iPhone Serie Pro</span>
+                                </div>
+                                <div class="w-8 h-1 bg-slate-700 rounded-full mx-auto mb-1"></div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 space-y-3">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h3 class="font-bold text-white text-base">iPhones Nuevos & Reacondicionados</h3>
+                                    <p class="text-xs text-slate-400">Desde iPhone XS hasta el último iPhone 18</p>
+                                </div>
+                                <span class="text-[11px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-lg">
+                                    En Stock
+                                </span>
+                            </div>
+
+                            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs text-slate-300">
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-sky-400"></i> Garantía Escrita</span>
+                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-check-double text-sky-400"></i> Libre de Fábrica</span>
+                            </div>
+
+                            <a href="#contacto" onclick="selectProduct('iPhone Serie Pro')" class="block w-full text-center bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2.5 rounded-xl text-xs transition-colors border border-slate-700">
+                                Solicitar Disponibilidad y Precio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Catalog Section -->
+    <section id="catalogo" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-sky-400 mb-2 block">Línea de Productos</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Catálogo de iPhones & Accesorios</h2>
+                <p class="text-slate-400 mt-3 text-xs sm:text-sm">Selecciona la categoría que buscas para cotizar de inmediato vía correo electrónico.</p>
+                
+                <!-- Category Filter Buttons -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8">
+                    <button onclick="filterCatalog('todos')" class="cat-btn active bg-sky-500 text-slate-950 font-bold px-4 py-2 rounded-xl text-xs transition-all" id="btn-todos">
+                        Todos
+                    </button>
+                    <button onclick="filterCatalog('iphones')" class="cat-btn bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-4 py-2 rounded-xl text-xs transition-all" id="btn-iphones">
+                        iPhones (XS a 18)
+                    </button>
+                    <button onclick="filterCatalog('cargadores')" class="cat-btn bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-4 py-2 rounded-xl text-xs transition-all" id="btn-cargadores">
+                        Cargadores & MagSafe
+                    </button>
+                    <button onclick="filterCatalog('audio')" class="cat-btn bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-4 py-2 rounded-xl text-xs transition-all" id="btn-audio">
+                        AirPods & Audio
+                    </button>
+                    <button onclick="filterCatalog('fundas')" class="cat-btn bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold px-4 py-2 rounded-xl text-xs transition-all" id="btn-fundas">
+                        Fundas & Vidrios
+                    </button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="products-container">
+                
+                <!-- Product: iPhone 18 -->
+                <div class="product-item iphones bg-slate-950 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:border-sky-500/50 transition-all group">
+                    <div>
+                        <div class="h-44 bg-slate-900 rounded-2xl flex items-center justify-center mb-6 relative">
+                            <i class="fa-solid fa-mobile-screen text-5xl text-sky-400 group-hover:scale-110 transition-transform"></i>
+                            <span class="absolute top-3 left-3 bg-sky-500/10 text-sky-400 border border-sky-500/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                                Nueva Generación
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">iPhone 18 / 18 Pro / Pro Max</h3>
+                        <p class="text-slate-400 text-xs mb-4">La máxima innovación de Apple con máximo rendimiento y cámaras de nivel profesional.</p>
+                        
+                        <ul class="text-xs text-slate-400 space-y-2 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Capacidades: 256GB / 512GB / 1TB</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Garantía escrita incluida</li>
+                        </ul>
+                    </div>
+
+                    <a href="#contacto" onclick="selectProduct('iPhone 18 / 18 Pro')" class="block text-center w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-3 rounded-xl text-xs transition-colors">
+                        Cotizar por Correo
+                    </a>
+                </div>
+
+                <!-- Product: iPhone 17 -->
+                <div class="product-item iphones bg-slate-950 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:border-sky-500/50 transition-all group">
+                    <div>
+                        <div class="h-44 bg-slate-900 rounded-2xl flex items-center justify-center mb-6 relative">
+                            <i class="fa-solid fa-mobile-screen text-5xl text-sky-400 group-hover:scale-110 transition-transform"></i>
+                            <span class="absolute top-3 left-3 bg-sky-500/10 text-sky-400 border border-sky-500/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                                Diseño Ultraligero
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-1">iPhone 17 / 17 Pro / Air</h3>
+                        <p class="text-slate-400 text-xs mb-4">Diseño ultra delgado, pantalla ProMotion mejorada y excelente batería.</p>
+                        
+                        <ul class="text-xs text-slate-400 space-y-2 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Capacidades: 128GB / 256GB / 512GB</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-sky-400"></i> Disponibilidad en varios colores</li>
+                        </ul>
+                    </div>
+
+                    <a href="#contacto" onclick="selectProduct('iPhone 17 / 17 Pro')" class="block text-center w-full bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold py-3 rounded-xl text-xs transition-colors">
+                        Cotizar por Correo
+                    </a>
+                </div>
+
+                <!-- Product: iPhone 16 -->
+                <div class="product-item iphones bg-slate-950 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between hover:border-sky-500/50 transition-all group">
+                    <div>
+                        <div class="h-44 bg-slate-900 rounded-2xl flex items-center justify-center mb-6 relative">
+                            <i class="fa-solid fa-mobile-screen text-5xl text-sky-400 group-hover:scale-110 transition-transform"></i>
+                            <span class="absolute top-3 left-3 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                                Más Vendido
+                            </span>
+                   
